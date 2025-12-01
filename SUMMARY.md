@@ -150,7 +150,7 @@ See `API-EXAMPLES.md` for PowerShell commands to test the endpoints.
 
 ---
 
-## 📊 Test Results
+## Test Results
 
 All 5 tests passed successfully:
 
@@ -174,7 +174,7 @@ All 5 tests passed successfully:
 
 ---
 
-## 🎓 Educational Value - Demonstrating Understanding
+## Educational Value - Demonstrating Understanding
 
 ### Why AES-256-GCM?
 
@@ -203,6 +203,15 @@ All 5 tests passed successfully:
 - Enforces secure key retirement
 - Models real-world policies
 
+### How Key Rotation Works?
+
+- New key generated every 60 minutes automatically
+- Keys use HKDF derivation from master key
+- System maintains: current key (v N) + previous key (v N-1)
+- When v3 created → v1 automatically deleted
+- Each encrypted record stores its key version number
+- Decryption looks up the exact key version used
+
 ### Cryptographic Mistakes Avoided:
 
 1. ❌ IV reuse → ✅ Fresh random IV every time
@@ -216,18 +225,6 @@ All 5 tests passed successfully:
 ---
 
 ## 📖 Documentation Files
-
-### SECURITY.md
-
-Comprehensive explanation of:
-
-- Why AES-256-GCM was chosen
-- Why IV and tag must be stored
-- How key rotation works
-- Why only current + previous keys supported
-- Common cryptographic mistakes avoided
-- Security best practices implemented
-- Known limitations (by design)
 
 ### QUICKSTART.md
 
@@ -254,63 +251,7 @@ PowerShell examples for:
 
 ---
 
-## 🔍 Code Quality
-
-### Well-Documented Code
-
-- Every function has JSDoc comments
-- Security reasoning explained inline
-- Clear variable names
-- Logical code organization
-
-### Modular Architecture
-
-- Separation of concerns
-- Each module has single responsibility
-- Easy to test and maintain
-- Clean interfaces between components
-
-### Error Handling
-
-- Graceful error messages
-- No sensitive data in errors
-- Proper HTTP status codes
-- Detailed logging (non-sensitive)
-
----
-
-## ⚠️ Known Limitations (Intentional)
-
-This is a **demonstration project**, not production-ready:
-
-### For Production, You Would Need:
-
-1. **HSM/KMS** - Hardware security module or key management service
-2. **Persistent Storage** - Encrypted database, not in-memory
-3. **Key Backup** - Encrypted backups for disaster recovery
-4. **Audit Logging** - Tamper-proof logs of operations
-5. **Rate Limiting** - Prevent brute-force attacks
-6. **Monitoring** - Anomaly detection
-7. **Compliance** - PCI-DSS, HIPAA, SOC 2, etc.
-
-### Threat Model
-
-This protects against:
-
-- ✅ Eavesdropping on stored data
-- ✅ Tampering with encrypted data
-- ✅ Long-term key exposure (via rotation)
-
-This does NOT protect against:
-
-- ❌ Memory dumps (keys in RAM)
-- ❌ Side-channel attacks
-- ❌ Compromised system (root access)
-- ❌ Social engineering
-
----
-
-## 🎯 Assessment Criteria Met
+## Assessment Criteria Met
 
 ### ✅ Functional Requirements
 
@@ -343,68 +284,6 @@ This does NOT protect against:
 - [x] How rotation works
 - [x] Why two-key limit
 - [x] Mistakes avoided
-
----
-
-## 💡 Key Takeaways
-
-This project demonstrates:
-
-1. **Cryptographic Understanding**
-
-   - AEAD vs other modes
-   - IV and nonce management
-   - Key derivation (HKDF)
-   - Authentication importance
-
-2. **Security Engineering**
-
-   - Defense in depth
-   - Secure coding practices
-   - Threat modeling
-   - Risk management
-
-3. **Key Management**
-
-   - Rotation strategies
-   - Version tracking
-   - Secure retirement
-   - Lifecycle management
-
-4. **Software Design**
-   - Modular architecture
-   - Clean interfaces
-   - Error handling
-   - Comprehensive testing
-
----
-
-## 📝 Conclusion
-
-This cryptographic data vault successfully demonstrates:
-
-- ✅ **Secure thinking** in cryptographic design
-- ✅ **Practical implementation** of AES-256-GCM
-- ✅ **Robust key management** with automatic rotation
-- ✅ **Clear documentation** of security decisions
-- ✅ **Comprehensive testing** proving correct behavior
-
-The goal was to show **understanding of cryptographic principles** and **security-conscious design**, not production-level cryptography - and this has been achieved.
-
----
-
-## 🚀 Next Steps (If Building for Production)
-
-1. Integrate with AWS KMS / Azure Key Vault / GCP Cloud KMS
-2. Replace in-memory storage with encrypted PostgreSQL/MongoDB
-3. Add comprehensive audit logging with Splunk/ELK
-4. Implement rate limiting and WAF
-5. Add monitoring and alerting (Prometheus, Grafana)
-6. Conduct security audit and penetration testing
-7. Achieve compliance certifications (SOC 2, PCI-DSS, etc.)
-8. Implement key ceremony and backup procedures
-9. Add multi-region replication
-10. Performance testing and optimization
 
 ---
 

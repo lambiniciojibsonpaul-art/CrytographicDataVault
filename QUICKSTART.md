@@ -281,43 +281,6 @@ Generate new key: `node -e "console.log(require('crypto').randomBytes(32).toStri
 
 ---
 
-## Project Structure
-
-```
-ChallengeB/
-├── src/
-│   ├── keyManager.js          # Key rotation and versioning
-│   ├── encryptionService.js   # AES-256-GCM encryption
-│   ├── dataStore.js           # In-memory storage
-│   ├── vaultService.js        # Business logic orchestration
-│   ├── server.js              # Express API server
-│   └── test.js                # Comprehensive test suite
-├── package.json
-├── .env.example               # Environment template
-├── .env                       # Your configuration (not in git)
-├── README.md                  # Project overview
-├── SECURITY.md                # Security documentation
-└── QUICKSTART.md              # This file
-```
-
----
-
-## Security Notes
-
-⚠️ **This is a demonstration project**, not production-ready.
-
-For production use, you need:
-
-- Hardware Security Module (HSM) or Key Management Service (KMS)
-- Encrypted persistent storage (not in-memory)
-- Audit logging
-- Rate limiting
-- Monitoring and alerting
-
-See `SECURITY.md` for detailed security analysis.
-
----
-
 ## Next Steps
 
 1. ✅ Run the test suite: `npm test`
@@ -338,13 +301,3 @@ See `SECURITY.md` for detailed security analysis.
 ✅ **Time-based Policy**: 2-hour decryption window (configurable)
 
 ---
-
-## Questions?
-
-Review the code comments and `SECURITY.md` for detailed explanations of:
-
-- Why AES-256-GCM was chosen
-- Why IV and tag must be stored
-- How key rotation works
-- Why only two keys are kept
-- What cryptographic mistakes were avoided

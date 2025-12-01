@@ -91,7 +91,3 @@ Retrieves and decrypts data by ID.
   }
 }
 ```
-
-## Security Features
-
-See SECURITY.md for detailed explanation of cryptographic practices and design decisions.
