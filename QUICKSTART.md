@@ -301,10 +301,3 @@ Generate new key: `node -e "console.log(require('crypto').randomBytes(32).toStri
 ✅ **Time-based Policy**: 2-hour decryption window (configurable)
 
 ---
-
-## All functionality Test Run
-
-```powershell
-.\AllFunctionalityTest.ps1
----
-```
