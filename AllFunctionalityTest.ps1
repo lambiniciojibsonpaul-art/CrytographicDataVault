@@ -1,5 +1,5 @@
 # Cryptographic Vault - Complete Feature Test Suite
-# Encoding: UTF-8 with BOM
+
 
 Write-Host "`n" -NoNewline
 Write-Host "================================================================" -ForegroundColor Cyan

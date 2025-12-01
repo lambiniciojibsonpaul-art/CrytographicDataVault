@@ -274,8 +274,13 @@ Save this as `test-api.ps1` and run with:
 .\test-api.ps1
 ```
 
+## All functionality Test Run
+
+```powershell
+.\AllFunctionalityTest.ps1
 ---
 
 ## Cleanup
 
 To stop the server, press `Ctrl+C` in the terminal where it's running.
+```
