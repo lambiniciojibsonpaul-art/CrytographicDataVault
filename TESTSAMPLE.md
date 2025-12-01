@@ -1,3 +1,5 @@
+# Copy Paste-Ready for Testing
+
 Write-Host "=== CRYPTOGRAPHIC VAULT - INTERACTIVE TEST ===" -ForegroundColor Cyan
 
 # Test 1: Store data
